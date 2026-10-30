@@ -1,0 +1,51 @@
+body {
+    font-family: "Exo", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+h1 {
+    font-size: 48px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 36px;
+    text-align: center;
+}
+
+p {
+    font-size: 20px;
+    margin: 20px;
+}
+
+.sub {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.vis {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.pure-g {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+#six {
+    margin-top: 60px;
+}
+
+#seven {
+    margin-right: 60px;
+}
+
+#end {
+    font-size: x-small;
+}

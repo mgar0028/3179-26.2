@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>FIT3179 A2</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Exo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.1.0/build/pure-min.css" integrity="sha384-kj0X2NG2KHBie8Tq8fH1kxnyWM9XsXQpq7XdwbKmFKjwwaXGKBlB2Klu3VOltSFx" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.1.0/build/grids-responsive-min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+    <link rel="stylesheet" href="a2.css">
+    <script src="1_2.js"></script>
+    <script src="3.js"></script>
+    <script src="4.js"></script>
+    <script src="5.js"></script>
+    <script src="6.js"></script>
+    <script src="7.js"></script>
+    <script src="8_9_10.js"></script>
+    <script src="11.js"></script>
+</head>
+<body>
+    <h1>The Importance of Imports</h1>
+    <div class="pure-g">
+        <div class="pure-u-1-2">
+            <p>With the majority of Australia's land mass covered in desert and arid areas, resources are scarce. Our population of 28 million and growing is unable to sustain itself without outside help.</p>
+        </div>
+        <div class="pure-u-1-2">
+            <p>We rely on imports from across the globe to ensure that our country stays world-class, but what exactly are we receiving? Let's take a look:</p>
+        </div>
+    </div>
+    
+    <h2>Who?</h2>
+    <p class="sub">Our trading partners around the world.</p>
+
+    <div class="vis">
+        <div id="onetwo"></div>
+    </div>
+    <div class="pure-g">
+        <div class="pure-u-1-2">
+            <p>Use the slider above to scroll through the past 20 years of imported goods, valued in Australian Dollars.
+                <br><br>Asia has consistently been at the forefront of our trade, making up over 50% of our import value across the time period shown. No wonder everything here is "Made in China"!
+            </p>
+        </div>
+        <div class="pure-u-1-2">
+            <div class="vis">
+                <div id="three"></div>
+            </div>
+        </div>
+    </div>
+
+    <h2>What?</h2>
+    <p class="sub">The actual products that we obtain overseas.</p>
+
+    <div class="pure-g">
+        <div class="pure-u-1-2">
+            <div class="vis">
+                <div id="four"></div>
+            </div>
+        </div>
+        <div class="pure-u-1-2">
+            <div class="vis">
+                <div id="five"></div>
+            </div>
+        </div>
+    </div>
+    <div class="pure-g">
+        <div class="pure-u-1-2">
+            <div class="vis">
+                <div id="six"></div>
+            </div>
+        </div>
+        <div class="pure-u-1-2">
+            <div class="vis">
+                <div id="seven"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pure-g">
+        <div class="pure-u-1-2">
+            <p>Interestingly, we can see how dependent Australia is on importing goods related to motor vehicles. All 5 of the top categories have to do with cars and fuelling them!
+                <br><br>Although the number of countries contributing to each sector remain stable, the throughput has steadily increased over the years, perhaps due to the evergrowing population here.
+            </p>
+        </div>
+        <div class="pure-u-1-2">
+            <p>The Asian region is once again our most important import partner group of each sector. This is especially true for our minerals and fuels, where we receive over 80% from Asian countries.
+                <br><br>The manufactures sector is easily the most popular, having the most contributing countries and the highest amount imported to Australia each year by a landslide.
+            </p>
+        </div>
+    </div>
+
+    <h2>Where?</h2>
+    <p class="sub">The final destinations of our incoming shipments.</p>
+
+    <div class="vis">
+        <div id="eightnineten"></div>
+    </div>
+
+    <div class="pure-g">
+        <div class="pure-u-1-2">
+            <p>Each grey circle in the map above represent one of 82 seaports in Australia. Most are located along the long and winding coasts of Western Australia and Queensland, with a few situated on Australian external territories.
+                <br><br>While relative amounts received per capita between states and territories vary quite a bit (excuse the poor interactive loading time), Victoria and New South Wales have always been the larger portion of consumers. This is despite the fact that both have less ports than states mentioned earlier.
+            </p>
+        </div>
+        <div class="pure-u-1-2">
+            <div class="vis">
+                <div id="eleven"></div>
+            </div>
+        </div>
+        
+    </div>
+
+    <p id="end">
+        Published by Malcolm Garillo 31/10/26<br>
+        Data sourced from Department of Foreign Affairs and Trade, world-countries-centroids Github, simplemaplab and Australian Bureau of Statistics<br>
+        Geographic data sourced from Natural Earth Data, Quick Map Tools and National Freight Data Hub
+    </p>
+
+</body>
+</html>
