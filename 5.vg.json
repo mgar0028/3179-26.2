@@ -1,0 +1,18 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text":"Regional Contributions", "align":"center", "fontSize":28},
+    "width":300,
+    "height":200,
+    "data": {"url":"data1.csv"},
+    "mark":"bar",
+    "encoding": {
+        "x": {"field":"Sector", "type":"nominal","axis":{"title":null,"labelAngle":20}},
+        "y": {"field":"Imported Value (A$)", "type":"quantitative", "aggregate":"sum", "stack":"normalize","axis":{"title":"% of Total Value"}},
+        "color": {
+            "field":"Region",
+            "type":"nominal",
+            "legend":{"labelFontSize":14,"titleFontSize":16}
+        },
+        "tooltip":[{"field":"Imported Value (A$)","type": "quantitative","aggregate":"sum","format":","}]
+    }
+}

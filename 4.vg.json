@@ -1,0 +1,49 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title":{"text":"Import by Category", "align":"center", "fontSize":28},
+    "width":300,
+    "height":200,
+    "data":{"url": "data1.csv"},
+    "params": [{
+        "name":"top_slider",
+        "value":10,
+        "bind": {
+            "input": "range",
+            "min": 1,
+            "max": 20,
+            "step": 1,
+            "name": "Show top: "
+        }
+    }],
+    "transform": [
+        {
+            "joinaggregate": [{
+                "op":"sum",
+                "field":"Imported Value (A$)",
+                "as":"total"
+            }],
+            "groupby": ["SITC 3 Digit"]
+        }, {
+            "window": [{
+                "op": "dense_rank",
+                "as": "rank"
+            }],
+            "sort": [{
+                "field": "total",
+                "order": "descending"
+            }]
+        }, {
+            "filter": "datum.rank <= top_slider"
+        }
+  ],
+    "mark":"area",
+    "encoding": {
+        "x": {"field":"Year", "type":"temporal"},
+        "y": {"field":"Imported Value (A$)", "type":"quantitative", "aggregate":"sum","axis":null, "stack":"center"},
+        "color": {
+            "field":"SITC 3 Digit",
+            "type":"nominal",
+            "legend":{"orient":"left","labelFontSize":14,"titleFontSize":16}
+        }
+    }
+}

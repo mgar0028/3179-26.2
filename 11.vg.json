@@ -1,0 +1,15 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text":"State Intake for All Time","align":"center","fontSize":28,"orient":"bottom"},
+    "width":300,
+    "height":300,
+    "data":{"url": "data2.csv"},
+    "mark": {"type": "arc", "innerRadius": 75},
+    "encoding": {
+        "theta": {"field":"Imported_Value_Million_A$", "type":"quantitative", "aggregate":"sum"},
+        "color": {"field":"State/Territory","legend":{"labelFontSize":14,"titleFontSize":16}},
+        "tooltip": [
+            {"field":"Imported_Value_Million_A$", "type":"quantitative", "aggregate":"sum","format":","}
+        ]
+    }
+}

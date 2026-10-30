@@ -1,0 +1,15 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text":"Sector per Year","align":"center","fontSize":28,"orient":"bottom"},
+    "width":300,
+    "height":200,
+    "data": {"url":"data1.csv"},
+    "mark": "rect",
+    "encoding": {
+        "x": {"field":"Sector","type":"nominal","axis":{"title":null,"orient":"top","labelAngle":20}},
+        "y": {"field":"Year","type":"nominal","axis":{"orient":"left"}},
+        "color": {"field":"Imported Value (A$)","aggregate":"sum","scale":{"type":"log"},"legend":{"title":"Import Value (A$)","labelFontSize":14,"titleFontSize":16}},
+        "tooltip":[{"field":"Imported Value (A$)","type": "quantitative","aggregate":"sum","format":","}]
+    },
+    "config": {"axis": {"grid": true, "tickBand":"extent"}}
+}

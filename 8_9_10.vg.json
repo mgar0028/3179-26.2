@@ -1,0 +1,76 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "params": [{
+        "name":"year_slider2",
+        "value":2006,
+        "bind": {
+            "input": "range",
+            "min": 2006,
+            "max": 2025,
+            "step": 1,
+            "name": "Year: "
+        }
+    }],
+    "hconcat":[
+        {
+            "title": {"text": "Australian State Import Rates", "align": "center", "fontSize":28},
+            "width":300,
+            "height":300,
+            "projection": {"type":"equirectangular"},
+            "layer": [{
+                "data": {
+                    "url": "geoBoundaries-AUS-ADM1.topojson",
+                    "format": {"type": "topojson", "feature": "AUSADM1gbOpen"}
+                },
+                "transform": [
+                    {
+                        "calculate": "datum['properties']['shapeName']+'_'+year_slider2","as": "lookupkey"
+                    }, {
+                        "lookup": "lookupkey",
+                        "from": {
+                            "data":{"url": "data2.csv"},
+                            "key": "Key",
+                            "fields": ["Year","Population","Imported_Value_Million_A$"]
+                        }
+                    }, {
+                        "calculate": "datum.Imported_Value_Million_A$*1000000/datum.Population","as": "Import per Capita (A$)"
+                    }
+                ],
+                "mark": {"type": "geoshape"},
+                "encoding": {
+                    "color": {
+                        "field":"Import per Capita (A$)",
+                        "type":"quantitative",
+                        "legend":{"labelFontSize":14,"titleFontSize":16,"orient":"left"}
+                    },
+                    "tooltip": [
+                        {"field":"properties.shapeName", "type":"nominal"},
+                        {"field":"Import per Capita (A$)","type": "quantitative"}
+                    ]
+                }
+            }, {
+                "data": {
+                    "url": "output.json",
+                    "format": {"type": "topojson", "feature": "Australian_Seaports"}
+                },
+                "mark": {"type": "geoshape", "stroke":"#777", "strokeWidth":0.5, "fill":null}
+
+            }]
+        }, {
+            "title": {"text": "Import per Port", "align": "center", "fontSize":28},
+            "width":300,
+            "height":300,
+            "data": {"url": "data2.csv"},
+            "transform": [
+                {"filter": "datum.Number_of_Ports > 0"},
+                {"calculate": "datum.Imported_Value_Million_A$/datum.Number_of_Ports","as": "Port Influx (Million A$)"}
+            ],
+            "mark": {"type": "line"},
+            "encoding": {
+                "x": {"field":"Year", "type": "temporal"},
+                "y": {"field":"Port Influx (Million A$)", "type": "quantitative"},
+                "color": {"field":"State/Territory","type": "nominal","legend":{"labelFontSize":14,"titleFontSize":16}}
+            }
+        }
+    ]
+}

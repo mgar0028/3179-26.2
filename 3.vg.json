@@ -1,0 +1,18 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width":300,
+    "height":200,
+    "data": {"url": "data1.csv"},
+    "mark": {"type": "area"},
+    "encoding": {
+        "x": {"field":"Year", "type":"temporal"},
+        "y": {"field":"Imported Value (A$)", "type": "quantitative", "aggregate":"sum"},
+        "color": {"field":"Region", "type": "nominal", "legend":null},
+        "order": {
+            "aggregate": "sum",
+            "field": "Imported Value (A$)",
+            "type": "quantitative",
+            "sort": "descending"
+        }
+    }
+}

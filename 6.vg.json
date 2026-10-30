@@ -1,0 +1,13 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title":{"text":"Contributing Countries","align": "center","fontSize":28,"orient":"bottom"},
+    "width":300,
+    "height":200,
+    "data":{"url":"data1.csv"},
+    "mark":{"type":"line","point":true},
+    "encoding": {
+        "x":{"field":"Year","type":"temporal","axis":{"title":null}},
+        "y":{"field":"Country","type":"nominal","aggregate":"distinct","axis":{"title":"Number of Countries Imported From"}},
+        "color":{"field":"Sector","type":"nominal","legend":{"orient": "left","labelFontSize":14,"titleFontSize":16}}
+    }
+}
